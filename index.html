@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corbiere</title>
+    <style>
+        /* Reset CSS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styles */
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+
+        /* Video Styles */
+        #background-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        /* Main Container */
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        /* Title (Corbiere stays outside the frame) */
+        .title {
+            font-size: 4rem;
+            font-weight: bold;
+            position: relative;
+            color: transparent;
+            background: linear-gradient(90deg, #5500ff, #ff00aa, #5500ff);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            animation: darkMatterAnimation 3s infinite linear;
+            text-shadow: 0px 0px 10px rgba(85, 0, 255, 0.7), 0px 0px 20px rgba(255, 0, 170, 0.7);
+            margin-bottom: 30px;
+        }
+
+        /* Dark Matter Animation */
+        @keyframes darkMatterAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Frame for Content (Box around description and icons) */
+        .content-frame {
+            border: 2px solid rgba(255, 255, 255, 0.5); /* Khung mờ màu trắng */
+            padding: 30px;
+            border-radius: 15px; /* Bo tròn góc */
+            backdrop-filter: blur(10px); /* Hiệu ứng mờ nền */
+            background: rgba(0, 0, 0, 0.6); /* Màu nền trong suốt */
+            display: inline-block;
+        }
+
+        /* Description inside frame */
+        .description {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Social Icons */
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .social-icons a {
+            display: inline-block;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: #fff;
+            background-position: center;
+            background-size: 50%;
+            background-repeat: no-repeat;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+
+        .social-icons a:hover {
+            transform: scale(1.2);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+        }
+
+        .discord {
+            background-image: url('photos/discord-icon.png');
+        }
+
+        .steam {
+            background-image: url('photos/steam-icon.png');
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Video -->
+    <video autoplay muted loop id="background-video">
+        <source src="photos/background-video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Title (Corbiere stays outside the frame) -->
+        <h1 class="title">Corbiere !!!</h1>
+
+        <!-- Content Frame -->
+        <div class="content-frame">
+            <!-- Bio and Description -->
+            <div class="content">
+                <p class="description">If you'd like to know more about me, DM me on Discord!</p>
+            </div>
+        
+            <!-- Social Links -->
+            <div class="social-icons">
+                <a href="https://discord.com/users/[ID]" class="icon discord" target="_blank"></a>
+                <a href="https://steamcommunity.com/id/corbiere" class="icon steam" target="_blank"></a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
