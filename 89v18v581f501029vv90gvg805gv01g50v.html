@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script defer src="main.js"></script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@1,500&display=swap");
+      @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap');
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background-color: #3d3e4a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.container {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.radio-btn-group {
+  margin: 10px;
+}
+
+input[type="radio"] {
+  opacity: 0;
+  position: absolute;
+}
+
+input[type="radio"]:checked + label {
+  &::before {
+    box-shadow: 0 0 25px 2px #0763f7;
+  }
+
+  span {
+    color: #c40a35;
+  }
+}
+
+input[type="radio"]:focus + label {
+  &::before {
+    box-shadow: 0 0 25px 2px #0763f7;
+  }
+}
+
+label {
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  font-weight: 500;
+  font-style: italic;
+  align-items: center;
+  justify-content: center;
+  font-family: "IBM Plex Mono", monospace;
+  height: 50px;
+  padding: 0 30px;
+  position: relative;
+
+  &::before {
+    background-color: #24252c;
+    background-image: repeating-linear-gradient(
+      0deg,
+      #181a29,
+      #181a29 1px,
+      #202436 1px,
+      #202436 2px
+    );
+    border-radius: 10px;
+    content: "";
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    overflow: hidden;
+    transform: skew(-15deg);
+    transition: box-shadow 700ms;
+    width: 100%;
+    z-index: -1;
+  }
+
+  span {
+    transition: color 350ms;
+    z-index: 1;
+  }
+
+  svg {
+    border-radius: 10px;
+    overflow: hidden;
+    position: absolute;
+    transform: skew(-15deg);
+
+    .blue rect {
+      fill: #76b3fa;
+      shape-rendering: crispEdges;
+      mix-blend-mode: plus-lighter;
+    }
+
+    .pink rect {
+      fill: #ff6bd3;
+      shape-rendering: crispEdges;
+    }
+  }
+}
+        html, body {
+          font-family: "Montserrat", sans-serif;
+          font-optical-sizing: auto;
+          font-weight: 900;
+          font-style: normal;
+          overflow:hidden;
+        }
+        body, .pov {
+          width:100%;
+          height:100vh;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background:#000;
+        }
+        .container {
+          position: relative;
+          z-index: 10;
+        }
+        .radio-btn-group label {
+          background: none;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 200px;
+          height: 50px;
+          position: relative;
+        }
+        .radio-btn-group label img {
+          display: block;
+        }
+        .radio-btn-group input:checked + label img {
+          display: none;
+        }
+        .radio-btn-group input:checked + label span {
+          display: block;
+          font-family: "Inter", sans-serif;
+          font-weight: 700;
+          color: black;
+        }
+        .radio-btn-group label span {
+          display: none;
+          text-align: center;
+        }
+        .radio-btn-group .confirmation-buttons {
+          display: none;
+          margin-top: 10px;
+          justify-content: center;
+          gap: 10px;
+        }
+        .radio-btn-group input:checked + label + .confirmation-buttons {
+          display: flex;
+        }
+        .confirmation-buttons button {
+          padding: 5px 10px;
+          font-family: "Inter", sans-serif;
+          font-weight: 700;
+          cursor: pointer;
+          background: none;
+          border: none;
+          color: #fff;
+          position: relative;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: 30px;
+          width: 60px;
+        }
+        .confirmation-buttons button::before {
+          background-color: #24252c;
+          background-image: repeating-linear-gradient(
+            0deg,
+            #181a29,
+            #181a29 1px,
+            #202436 1px,
+            #202436 2px
+          );
+          border-radius: 10px;
+          content: "";
+          height: 100%;
+          position: absolute;
+          left: 0;
+          top: 0;
+          overflow: hidden;
+          transform: skew(-15deg);
+          transition: box-shadow 700ms;
+          width: 100%;
+          z-index: -1;
+        }
+        .confirmation-buttons button:hover::before {
+          box-shadow: 0 0 25px 2px #0763f7;
+        }
+        .die {
+          width: 400px;
+          height: 55px;
+          padding-bottom: 9px;
+          perspective: 999px;
+        }
+        .cube {
+          position: absolute;
+          width:100%;
+          height:100%;
+          transform-style: preserve-3d;
+        }
+        .face {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          backface-visibility: hidden;
+        }
+        .glow {
+          text-shadow: 0 0 2px #fff, 0 0 4px #fff, 0 0 6px #fff, 0 0 8px #00ffff, 0 0 10px #00ffff, 0 0 12px #00ffff, 0 0 14px #00ffff, 0 0 16px #00ffff;
+        }
+        .pov {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          z-index: 1;
+        }
+        .confirmation {
+          display: none;
+          margin-top: 10px;
+          color: white;
+          font-size: 14px;
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="radio-btn-group">
+            <input type="radio" name="stagger-radio-group" value="2" id="input-two" />
+            <label for="input-two">
+              <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English Flag" width="30" height="20">
+              <span>Would you like to check out my portfolio?</span>
+              <svg height="100%" width="100%" xmlns="http://www.w3.org/2000/svg">
+                <g class="pink">
+                  <rect x="-100%" y="0" width="100%" height="5" />
+                  <rect x="-100%" y="5" width="100%" height="5" />
+                  <rect x="-100%" y="10" width="100%" height="5" />
+                  <rect x="-100%" y="15" width="100%" height="5" />
+                  <rect x="-100%" y="20" width="100%" height="5" />
+                  <rect x="-100%" y="25" width="100%" height="5" />
+                  <rect x="-100%" y="30" width="100%" height="5" />
+                  <rect x="-100%" y="35" width="100%" height="5" />
+                  <rect x="-100%" y="40" width="100%" height="5" />
+                  <rect x="-100%" y="45" width="100%" height="5" />
+                </g>
+        
+                <g class="blue">
+                  <rect x="-100%" y="0" width="100%" height="5" />
+                  <rect x="-100%" y="5" width="100%" height="5" />
+                  <rect x="-100%" y="10" width="100%" height="5" />
+                  <rect x="-100%" y="15" width="100%" height="5" />
+                  <rect x="-100%" y="20" width="100%" height="5" />
+                  <rect x="-100%" y="25" width="100%" height="5" />
+                  <rect x="-100%" y="30" width="100%" height="5" />
+                  <rect x="-100%" y="35" width="100%" height="5" />
+                  <rect x="-100%" y="40" width="100%" height="5" />
+                  <rect x="-100%" y="45" width="100%" height="5" />
+                </g>
+              </svg>
+            </label>
+            <div class="confirmation-buttons">
+              <button onclick="window.location.href='b901g2b3091293g012b9312g32193g912g3902131238fr0/b901g2b3091293g012b9312g32193g912g3902131238fr0.html'">Yes</button>
+              <button onclick="resetButton('input-two')">No</button>
+            </div>
+          </div>
+
+        <div class="radio-btn-group">
+          <input type="radio" name="stagger-radio-group" value="1" id="input-one" />
+          <label for="input-one">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/2/21/Flag_of_Vietnam.svg" alt="Vietnam Flag" width="30" height="20">
+            <span>Vào xem portfolio của tôi chứ?</span>
+            <svg height="100%" width="100%" xmlns="http://www.w3.org/2000/svg">
+              <g class="pink">
+                <rect x="-100%" y="0" width="100%" height="5" />
+                <rect x="-100%" y="5" width="100%" height="5" />
+                <rect x="-100%" y="10" width="100%" height="5" />
+                <rect x="-100%" y="15" width="100%" height="5" />
+                <rect x="-100%" y="20" width="100%" height="5" />
+                <rect x="-100%" y="25" width="100%" height="5" />
+                <rect x="-100%" y="30" width="100%" height="5" />
+                <rect x="-100%" y="35" width="100%" height="5" />
+                <rect x="-100%" y="40" width="100%" height="5" />
+                <rect x="-100%" y="45" width="100%" height="5" />
+              </g>
+      
+              <g class="blue">
+                <rect x="-100%" y="0" width="100%" height="5" />
+                <rect x="-100%" y="5" width="100%" height="5" />
+                <rect x="-100%" y="10" width="100%" height="5" />
+                <rect x="-100%" y="15" width="100%" height="5" />
+                <rect x="-100%" y="20" width="100%" height="5" />
+                <rect x="-100%" y="25" width="100%" height="5" />
+                <rect x="-100%" y="30" width="100%" height="5" />
+                <rect x="-100%" y="35" width="100%" height="5" />
+                <rect x="-100%" y="40" width="100%" height="5" />
+                <rect x="-100%" y="45" width="100%" height="5" />
+              </g>
+            </svg>
+          </label>
+          <div class="confirmation-buttons">
+            <button onclick="window.location.href='b901g2b3091293g012b9312g32193g912g3902131238fr0/b901g2b3091293g012b9312g32193g912g3902131238fr0.html'">Đồng ý</button>
+            <button onclick="resetButton('input-one')">Không</button>
+          </div>
+        </div>
+      
+        <div class="radio-btn-group">
+          <input type="radio" name="stagger-radio-group" value="3" id="input-three" />
+          <label for="input-three">
+            <img src="https://upload.wikimedia.org/wikipedia/en/f/f3/Flag_of_Russia.svg" alt="Russian Flag" width="30" height="20">
+            <span>Хотите взглянуть на мое портфолио?</span>
+            <svg height="100%" width="100%" xmlns="http://www.w3.org/2000/svg">
+              <g class="pink">
+                <rect x="-100%" y="0" width="100%" height="5" />
+                <rect x="-100%" y="5" width="100%" height="5" />
+                <rect x="-100%" y="10" width="100%" height="5" />
+                <rect x="-100%" y="15" width="100%" height="5" />
+                <rect x="-100%" y="20" width="100%" height="5" />
+                <rect x="-100%" y="25" width="100%" height="5" />
+                <rect x="-100%" y="30" width="100%" height="5" />
+                <rect x="-100%" y="35" width="100%" height="5" />
+                <rect x="-100%" y="40" width="100%" height="5" />
+                <rect x="-100%" y="45" width="100%" height="5" />
+              </g>
+      
+              <g class="blue">
+                <rect x="-100%" y="0" width="100%" height="5" />
+                <rect x="-100%" y="5" width="100%" height="5" />
+                <rect x="-100%" y="10" width="100%" height="5" />
+                <rect x="-100%" y="15" width="100%" height="5" />
+                <rect x="-100%" y="20" width="100%" height="5" />
+                <rect x="-100%" y="25" width="100%" height="5" />
+                <rect x="-100%" y="30" width="100%" height="5" />
+                <rect x="-100%" y="35" width="100%" height="5" />
+                <rect x="-100%" y="40" width="100%" height="5" />
+                <rect x="-100%" y="45" width="100%" height="5" />
+              </g>
+            </svg>
+          </label>
+          <div class="confirmation-buttons">
+            <button onclick="window.location.href='b901g2b3091293g012b9312g32193g912g3902131238fr0/b901g2b3091293g012b9312g32193g912g3902131238fr0.html'">
+                Да</button>
+            <button onclick="resetButton('input-three')">Нет</button>
+          </div>
+        </div>
+      </div>
+      <div class="pov">
+        <div class="tray">
+          <div class="die">
+            <div class="cube">
+              <div class="face glow" style="font-size:60px">_B_!#G(#B_!B#B!#(B_!(#G_!B#(!G#</div>
+              <div class="face glow" style="font-size:58px">CORBIEREVN</div>
+              <div class="face glow" style="font-size:55px">+B!)B!)(B+GB$)!B)B0=b0=</div>      
+            </div>
+          </div>  
+          <!-- clones will go here -->
+        </div>
+    </div>
+    <script>
+        function resetButton(inputId) {
+            document.getElementById(inputId).checked = false;
+            document.querySelectorAll('.radio-btn-group label span').forEach(span => span.style.display = 'none');
+            document.querySelectorAll('.confirmation-buttons').forEach(buttons => buttons.style.display = 'none');
+        }
+
+        document.querySelectorAll('.radio-btn-group label').forEach(label => {
+            label.addEventListener('mouseenter', () => {
+                label.querySelector('input').checked = true;
+                // Trigger the effect here
+            });
+            label.addEventListener('click', () => {
+                document.querySelectorAll('.radio-btn-group label span').forEach(span => span.style.display = 'none');
+                document.querySelectorAll('.confirmation-buttons').forEach(buttons => buttons.style.display = 'none');
+                label.querySelector('span').style.display = 'block';
+                label.nextElementSibling.style.display = 'flex';
+            });
+        });
+    </script>
+</body>
+</html>

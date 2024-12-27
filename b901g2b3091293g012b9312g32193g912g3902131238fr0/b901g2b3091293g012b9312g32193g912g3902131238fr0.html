@@ -26,25 +26,32 @@
         }
 
         @font-face {
-            font-family: 'SF Pro';
-            src: url('https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sfprodisplayregular.woff2') format('woff2');
-            font-weight: 400;
-            font-style: normal;
-            font-display: swap;
-        }
-
-        @font-face {
-            font-family: 'SF Pro';
-            src: url('https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sfprodisplaybold.woff2') format('woff2');
-            font-weight: 700;
+            font-family: 'Inter';
+            src: url('https://fonts.googleapis.com/css2?family=Inter:wght@100;400;700&display=swap');
+            font-weight: 100 700;
             font-style: normal;
             font-display: swap;
         }
 
         /* Global Styles */
         * {
-            font-family: 'SF Pro', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-            font-weight: 400;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+            font-weight: 100;
+        }
+
+        h1, h2, h3, h4, h5, h6,
+        .navbar-brand,
+        .btn,
+        .nav-links {
+            font-weight: 700;
+            text-shadow: 0 0 5px var(--primary);
+        }
+
+        .brand-subtitle,
+        p,
+        input,
+        textarea {
+            font-weight: 100;
         }
 
         /* Typography */
@@ -53,11 +60,12 @@
         .btn,
         .nav-links {
             font-weight: 700;
+            text-shadow: 0 0 5px var(--primary);
         }
 
         /* Updated Button Styles */
         .btn-neon-red, .btn-outline-teal {
-            font-family: 'SF Pro', sans-serif;
+            font-family: 'Inter', sans-serif;
             font-weight: 700;
             letter-spacing: 2px;
             text-transform: uppercase;
@@ -122,10 +130,10 @@
         .btn-neon-red {
             display: inline-block;
             background: transparent;
-            border: 2px solid var(--secondary);
+            border: 2px solid var (--secondary);
             color: var(--secondary);
             padding: 12px 24px;
-            font-family: 'SF Pro', sans-serif;
+            font-family: 'Inter', sans-serif;
             font-size: 1.2rem;
             text-transform: uppercase;
             letter-spacing: 2px;
@@ -261,11 +269,11 @@
 
         /* Global font settings */
         * {
-            font-family: 'SF Pro', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
         }
 
         body {
-            font-family: 'SF Pro', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
             font-weight: 400;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
@@ -279,7 +287,7 @@
         .btn,
         input,
         textarea {
-            font-family: 'SF Pro', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
             font-weight: 700;
         }
 
@@ -301,7 +309,7 @@
 
         .form-group input,
         .form-group textarea {
-            font-family: 'SF Pro', sans-serif;
+            font-family: 'Inter', sans-serif;
             border-radius: 8px;
             transition: all 0.3s ease;
         }
@@ -440,7 +448,7 @@
             width: 100%;
             margin-bottom: 20px;
             border-radius: 8px;
-            font-family: 'SF Pro', sans-serif;
+            font-family: 'Inter', sans-serif;
         }
 
         .form-group label {
@@ -491,7 +499,7 @@
             border-radius: 8px;
             color: var(--light);
             font-size: 1rem;
-            font-family: 'SF Pro', sans-serif;
+            font-family: 'Inter', sans-serif;
             transition: all 0.3s ease;
         }
 
@@ -515,7 +523,7 @@
         .btn-outline-teal {
             background: transparent;
             border: 2px solid var(--primary);
-            color: var(--primary);
+            color: var (--primary);
             padding: 12px 30px;
             font-size: 1.1rem;
             font-weight: 600;
@@ -650,7 +658,7 @@
         }
 
         h2 {
-            font-family: 'SF Pro', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
             font-weight: 700;
             letter-spacing: -0.5px;
         }
@@ -770,7 +778,7 @@
             margin-bottom: 2rem !important;
             text-transform: uppercase !important;
             letter-spacing: 0 !important; /* Remove letter spacing */
-            font-family: 'SF Pro', -apple-system, BlinkMacSystemFont, system-ui, sans-serif !important;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif !important;
             font-weight: 700 !important;
             gap: 0 !important; /* Remove gap */
             white-space: nowrap !important;
@@ -1114,9 +1122,9 @@
             }
         }
 
-        /* Update the strong content for REDHAT */
+        /* Update the strong content for WHO */
         .wrapper h1 strong::before {
-            content: 'REDHAT';
+            content: 'WHO';
         }
 
         .legal-wrapper {
@@ -1555,7 +1563,7 @@
 
         /* Mobile Responsiveness Fixes */
         @media screen and (max-width: 768px) {
-            /* REDHAT VN Header Fix */
+            /* WHO VN Header Fix */
             .wrapper h1 {
                 display: flex;
                 flex-direction: row;
@@ -1640,6 +1648,7 @@
                 margin-bottom: 1.5rem;
                 text-align: center;
             }
+        }
 
             /* Safari-specific fixes */
             @supports (-webkit-touch-callout: none) {
@@ -1648,6 +1657,7 @@
                     -webkit-text-size-adjust: 100%;
                     gap: 0.3rem;
                 }
+                
 
                 /* Fix for Safari mobile scrolling */
                 .content-wrapper,
@@ -1721,7 +1731,7 @@
 
         /* Mobile Layout Fixes */
         @media screen and (max-width: 767px) {
-            /* REDHAT VN Header Fix */
+            /* WHO VN Header Fix */
             .wrapper h1 {
                 font-size: 2.5rem !important;
                 gap: 0.3rem !important;
@@ -1892,6 +1902,52 @@
                 padding: 1.5rem 1rem !important;
             }
         }
+
+        /* New styles for blur fade-in effect */
+        .blur-fade-in {
+            animation: blurFadeIn 1.2s ease-out forwards;
+        }
+
+        @keyframes blurFadeIn {
+            0% {
+                opacity: 0;
+                filter: blur(10px);
+            }
+            100% {
+                opacity: 1;
+                filter: blur(0);
+            }
+        }
+
+        /* New styles for random translations */
+        .fade-in-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+        }
+
+        .fade-in-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+        }
+
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+        }
+
+        .fade-in-down {
+            opacity: 0;
+            transform: translateY(-50px);
+            transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+        }
+
+        .visible {
+            opacity: 1 !important;
+            transform: translateX(0) !important;
+        }
     </style>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
@@ -1904,7 +1960,7 @@
     <script defer src="https://rawgit.com/Jesus-E-Rodriguez/cityscapes-landing-page/master/js/scroll.js"></script>
     <title>Fortfolio</title>
 </head>
-<body>
+<body class="blur-fade-in">
     <!-- Main Navigation -->
 <nav class="main-nav" id="main-nav">
     <div class="content-wrapper-sm">
@@ -1927,8 +1983,8 @@
     <img class="img-absolute" src="/psf8s7fas9fbsa89fh8b9BUIHU92874/8175982165901609560165902105621605871904718274829147.jpg" alt="Corbiere 1">
     <div class="wrapper astonish animated fadeInDown">
         <div class="brand-wrapper">
-            <span class="brand-subtitle">A member of</span>
-            <h1><strong>REDHAT</strong><span class="vn-text">VN</span></h1>
+            <span class="brand-subtitle">If you want to know</span>
+            <h1><strong>WHO</strong><span class="vn-text">AMI</span></h1>
         </div>
         <h2>A cybersecurity, networking and more...</h2>
     </div>
@@ -1937,111 +1993,52 @@
    <!-- Main content -->
    <main>
     <!-- About section -->
-    <div class="content-wrapper" id="about" data-animation="fadeInLeft">
-        <div class="grid">
-            <!-- About content column -->
-            <div class="grid-col-sm-12 grid-col-md-6 astonish" data-animation="fadeInLeft">
-                <h2 class="section-title">About me</h2>
-                <p>Hi, I'm a passionate Penetration Tester and a DevOps enthusiast who loves exploring cutting-edge technologies. My focus lies in combining cybersecurity practices with DevOps methodologies to create secure, scalable, and efficient systems.</p>
-                <p>With a background in networking, reverse engineering, and container orchestration, I enjoy solving complex problems and staying updated with the latest industry trends. Whether it's analyzing malware, building CI/CD pipelines, or automating infrastructure, I'm always eager to learn and grow.</p>
-                <p>When I'm not working, you can find me sharing knowledge, exploring open-source projects, or collaborating on exciting tech challenges. Let's connect and build something amazing together!</p>
-            </div>
-            
-            <!-- Roadmap column -->
-            <div class="grid-col-sm-12 grid-col-md-6 astonish" data-animation="fadeInRight">
-                <div class="roadmap-container" style="background: rgba(0,0,0,0.5); padding: 20px; border-radius: 10px; backdrop-filter: blur(10px);">
-                    <img 
-                        src="/psf8s7fas9fbsa89fh8b9BUIHU92874/91072312903712649021401242104692164.gif" 
-                        alt="GitHub Stats"
-                        style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 20px;"
-                    />
-                </div>
+<div class="content-wrapper" id="about" data-animation="fadeInLeft">
+    <div class="grid">
+        <!-- About content column -->
+        <div class="grid-col-sm-12 astonish" data-animation="fadeInLeft">
+            <h2 class="section-title">About me</h2>
+            <p>Hello! I'm a dedicated cybersecurity and DevOps enthusiast with a passion for exploring the intricate world of technology. My journey began with a deep interest in networking and reverse engineering, which naturally led me to the field of cybersecurity. Over the years, I've honed my skills in penetration testing, malware analysis, and ethical hacking, always striving to stay ahead of the curve in this ever-evolving domain.</p>
+            <p>In the realm of cybersecurity, I have extensive knowledge in Network Programming (TCP connect,...), SIEM (AlienVault, Splunk), IPS/IDS (Suricata, Snort,...), Firewalls (Cisco ASA, Palo Alto,...), Networking (CCNA), Digital Forensics (Wireshark, OSINT, Xplico,...), Reverse Engineering (Ghidra, IDA,...), and more.</p>
+            <p>As a DevOps Architect, I specialize in CI/CD (GitHub CI/CD, GitLab CI, Jenkins,...), Infrastructure as Code (Terraform, Ansible,...), Microservices, Webservices (AWS), Prometheus, and other related technologies.</p>
+            <p>My approach to cybersecurity is holistic, combining technical prowess with a strategic mindset. I enjoy dissecting complex problems, whether it's through vulnerability assessments, threat modeling, or incident response. My goal is to build secure systems that can withstand the ever-growing landscape of cyber threats.</p>
+            <p>Outside of work, I am an avid learner and contributor to the open-source community. I love sharing knowledge through blogs, workshops, and collaborative projects. Whether it's developing new security tools, participating in capture-the-flag (CTF) competitions as a newbie, or exploring the latest advancements in cloud security, I'm always eager to expand my horizons and connect with like-minded professionals. Additionally, I enjoy playing games from Hoyoverse such as Genshin Impact, Honkai Impact 3, and Honkai Star Rail.</p>
+            <p>Let's connect and embark on this exciting journey together, leveraging the power of cybersecurity and DevOps to create a safer digital world!</p>
+        </div>
+        <!-- Roadmap column -->
+        <div class="grid-col-sm-12 astonish" data-animation="fadeInRight">
+            <div class="roadmap-container" style="background: rgba(0,0,0,0.5); padding: 20px; border-radius: 10px; backdrop-filter: blur(10px);">
+                <img 
+                    src="/psf8s7fas9fbsa89fh8b9BUIHU92874/12836129362136218064021604612046201.jpg" 
+                    alt="GitHub Stats"
+                    style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 20px;"
+                />
             </div>
         </div>
     </div>
-
-    <!-- Legal Notice section -->
-    <div class="legal-wrapper content-wrapper" data-animation="fadeIn">
-        <div class="legal-notice astonish" data-animation="fadeIn">
-            <div class="legal-container">
-                <div class="legal-flex">
-                    <div class="legal-image">
-                        <img src="/psf8s7fas9fbsa89fh8b9BUIHU92874/12836129362136218064021604612046201.jpg" alt="Ethical Hacking" class="ethical-hacker-img">
-                    </div>
-                    <div class="legal-text">
-                        <h3>Legal Compliance Statement</h3>
-                        <p class="legal-description">
-                            All activities conducted through this platform are strictly for educational and legal purposes only. 
-                            We operate under ethical hacking principles and comply with all relevant cybersecurity laws and regulations.
+</div>
+    <!-- Legal Compliance Statement section -->
+    <div class="content-wrapper" id="resource" data-animation="fadeIn">
+        <div class="astonish" data-animation="fadeIn">
+            <div class="grid">
+                <div class="grid-col-sm-12 grid-col-md-6">
+                    <img src="/psf8s7fas9fbsa89fh8b9BUIHU92874/b0194b12g42014v2014124v021v4214v.jpg" alt="Resource Image" style="width: 100%; height: auto; border-radius: 8px;">
+                </div>
+                <div class="grid-col-sm-12 grid-col-md-6">
+                    <h4 style="color: var(--secondary); margin-bottom: 1rem;">Legal Compliance Statement</h4>
+                    <p style="color: var(--light); font-size: 1rem; line-height: 1.6; margin-bottom: 1rem;">
+                        All activities conducted through this platform are strictly for educational and legal purposes only. We operate under ethical hacking principles and comply with all relevant cybersecurity laws and regulations.
+                    </p>
+                    <div style="background: rgba(255,0,0,0.2); padding: 1rem; border-radius: 4px; margin-top: 1rem;">
+                        <p style="color: var(--light); font-size: 0.9rem; margin: 0;">
+                            ⚠️ <strong>Legal Disclaimer:</strong> Users accessing this website acknowledge that they are responsible for their own actions. Any misuse of the information provided here for malicious purposes is strictly prohibited and may result in legal consequences.
                         </p>
-                        <div class="legal-warning">
-                            <p>
-                                ⚠️ WARNING: Users accessing this website acknowledge that they are responsible for their own actions. 
-                                Any misuse of the information provided here for malicious purposes is strictly prohibited and may result in legal consequences.
-                            </p>
-                        </div>
-                        <div class="legal-cta">
-                            <a href="https://www.hackingisnotacrime.org/" target="_blank" class="btn btn-neon-red">
-                                Learn About Legal Hacking
-                            </a>
-                        </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- More Features section -->
-    <div id="reserve" class="content-wrapper-lg text-center" data-animation="fadeInUp">
-        <h2 class="section-title">More features</h2>
-        <p>One more thing...</p>
-        <p>I’ve gathered some interesting features from various sources for you to tinker with (of course, it’s free and community-driven!).</p>
-        <a href="https://t.me/ddos0" class="btn btn-neon-red" target="_blank">Services</a>
-        <a href="/games/Ne3nrIpNzIdFwbOG147nbPehPxZZXNTjqgITJVSSeZdoMA0CGe.html" class="btn btn-neon-red" target="_blank">Games</a>
-    </div>
-
-    <!-- Learning Path section -->
-    <div class="content-wrapper" id="learning" data-animation="fadeInRight">
-        <!-- TryHackMe Section -->
-        <div class="tryhackme-profile astonish" data-animation="fadeInRight">
-            <h2 class="section-title">Learning Path</h2>
-            <p>Learn the skills needed to become a Red Team Operator with TryHackMe.</p>
-            <div style="background: rgba(0,0,0,0.5); padding: 20px; border-radius: 10px; margin-bottom: 40px;">
-                <iframe 
-                    src="https://tryhackme.com/room/redteamfundamentals" 
-                    style="width: 100%; height: 600px; border: none; border-radius: 8px; box-shadow: 0 0 20px rgba(255,0,85,0.2);"
-                ></iframe>
-                <div style="margin-top: 20px; text-align: center;">
-                    <a 
-                        href="https://tryhackme.com/path/outline/redteaming" 
-                        target="_blank" 
-                        class="btn btn-neon-red"
-                    >
-                        Learn More About Red Teaming
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Tools section -->
-    <div class="content-wrapper" id="tools" data-animation="fadeInUp">
-        <div class="tryhackme-profile astonish" data-animation="fadeInRight">
-            <h2 class="section-title">Digital Forensics Tools</h2>
-            <p>Essential tools for digital forensics and cybersecurity investigations.</p>
-            <div style="background: rgba(0,0,0,0.5); padding: 20px; border-radius: 10px; margin-bottom: 40px;">
-                <iframe 
-                    src="https://labs.ece.uw.edu/nsl/students/alomair/LB-Arabic/general/forensic-tools/index.html"
-                    style="width: 100%; height: 600px; border: none; border-radius: 8px; box-shadow: 0 0 20px rgba(255,0,85,0.2);"
-                ></iframe>
-                <div style="margin-top: 20px; text-align: center;">
-                    <a 
-                        href="https://www.forensicfocus.com/tools/" 
-                        target="_blank" 
-                        class="btn btn-neon-red"
-                    >
-                        Explore More Tools
-                    </a>
+                    <div class="legal-cta">
+                        <a href="https://www.hackingisnotacrime.org/" target="_blank" class="btn btn-neon-red">
+                            Learn About Legal Hacking
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -2117,10 +2114,7 @@
                 
                 <div id="download-container" style="text-align: center; padding: 20px;">
                     <button id="download-btn" class="btn btn-neon-red" style="font-size: 1.2rem; padding: 15px 30px; margin-right: 15px;">
-                        EBook of Hacking
-                    </button>
-                    <button id="urlscraper-btn" class="btn btn-neon-red" style="font-size: 1.2rem; padding: 15px 30px;">
-                        URLScraper
+                        Random Uploads
                     </button>
                 </div>
             </div>
@@ -2346,6 +2340,26 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             }
         });
+    });
+});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, {
+        threshold: 0.1
+    });
+
+    const animations = ['fade-in-left', 'fade-in-right', 'fade-in-up', 'fade-in-down'];
+    document.querySelectorAll('.content-wrapper').forEach(section => {
+        const randomAnimation = animations[Math.floor(Math.random() * animations.length)];
+        section.classList.add(randomAnimation);
+        observer.observe(section);
     });
 });
 </script>
