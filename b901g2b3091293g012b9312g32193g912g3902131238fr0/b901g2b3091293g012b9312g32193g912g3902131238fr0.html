@@ -752,6 +752,7 @@
             background: linear-gradient(90deg, #ff0055, #ff0055);
             -webkit-background-clip: text;
             background-clip: text;
+            color: transparent;
             animation: titleGlow 3s infinite;
         }
 
@@ -1948,6 +1949,73 @@
             opacity: 1 !important;
             transform: translateX(0) !important;
         }
+
+        /* Add these new styles after the root variables */
+        .tools-list {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .tools-list .tool-item {
+            margin-bottom: 10px;
+            cursor: pointer;
+            padding: 10px;
+            border: 1px solid var(--secondary);
+            border-radius: 8px;
+            transition: background 0.3s ease;
+            text-align: center;
+        }
+
+        .tools-list .tool-item:hover {
+            background: rgba(255, 0, 85, 0.1);
+        }
+
+        .tools-list .tool-item .tool-summary {
+            font-weight: bold;
+            color: var(--secondary);
+        }
+
+        .tools-list .tool-item .tool-details {
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: max-height 0.5s ease, opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .tools-list .tool-item .tool-details p {
+            margin: 5px 0;
+        }
+
+        .tools-list .tool-item .tool-details .tool-link {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 12px 24px;
+            background: transparent;
+            border: 2px solid var(--secondary);
+            color: var(--secondary);
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .tools-list .tool-item .tool-details .tool-link:hover {
+            background: var(--secondary);
+            color: var(--light);
+            box-shadow: 0 0 20px var(--secondary);
+            transform: translateY(-2px);
+        }
+
+        .tools-list .tool-item.expanded .tool-details {
+            max-height: 500px; /* Adjust based on content height */
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
@@ -2044,6 +2112,107 @@
         </div>
     </div>
 
+<!-- CyberSecurity Tools - Every Beginner Should Know section -->
+<div class="content-wrapper" id="tools" data-animation="fadeIn">
+    <h2 class="section-title">CyberSecurity Tools - Every Beginner Should Know</h2>
+    <div class="tools-list">
+        <div class="tool-item">
+            <div class="tool-summary">VirusTotal</div>
+            <div class="tool-details">
+                <p>VirusTotal is a free online service that analyzes files and URLs for viruses, worms, trojans, and other kinds of malicious content. It scans using multiple antivirus engines and provides detailed reports.</p>
+                <a href="https://www.virustotal.com" target="_blank" class="tool-link">Visit VirusTotal</a>
+            </div>
+        </div>
+        <div class="tool-item">
+            <div class="tool-summary">CVE (Common Vulnerabilities and Exposures)</div>
+            <div class="tool-details">
+                <p>CVE is a list of publicly disclosed cybersecurity vulnerabilities and exposures. It helps organizations improve their security by identifying and addressing known vulnerabilities in their systems.</p>
+                <a href="https://www.cve.mitre.org" target="_blank" class="tool-link">Visit CVE</a>
+            </div>
+        </div>
+        <div class="tool-item">
+            <div class="tool-summary">WHOIS</div>
+            <div class="tool-details">
+                <p>WHOIS is a query and response protocol used for querying databases that store registered users or assignees of an Internet resource, such as a domain name or an IP address block.</p>
+                <a href="https://lnkd.in/gMqJ-qvT" target="_blank" class="tool-link">Visit WHOIS</a>
+            </div>
+        </div>
+        <div class="tool-item">
+            <div class="tool-summary">Shodan</div>
+            <div class="tool-details">
+                <p>Shodan is a search engine for Internet-connected devices. It allows users to discover which of their devices are connected to the Internet, where they are located, and who is using them.</p>
+                <a href="https://shodan.io" target="_blank" class="tool-link">Visit Shodan</a>
+            </div>
+        </div>
+        <div class="tool-item">
+            <div class="tool-summary">AlienVault OTX</div>
+            <div class="tool-details">
+                <p>AlienVault OTX (Open Threat Exchange) is a platform for sharing threat intelligence. It allows security professionals to collaborate and share information about the latest threats and vulnerabilities.</p>
+                <a href="https://lnkd.in/gbFijfFZ" target="_blank" class="tool-link">Visit AlienVault OTX</a>
+            </div>
+        </div>
+        <div class="tool-item">
+            <div class="tool-summary">Nmap</div>
+            <div class="tool-details">
+                <p>Nmap (Network Mapper) is a free and open-source utility for network discovery and security auditing. It is used to discover hosts and services on a computer network by sending packets and analyzing the responses.</p>
+                <a href="https://www.nmap.org" target="_blank" class="tool-link">Visit Nmap</a>
+            </div>
+        </div>
+        <div class="tool-item">
+            <div class="tool-summary">Censys</div>
+            <div class="tool-details">
+                <p>Censys is a search engine that enables researchers to ask questions about the devices and networks that compose the Internet. It provides data on the state of the Internet, including security vulnerabilities and exposures.</p>
+                <a href="https://www.censys.io" target="_blank" class="tool-link">Visit Censys</a>
+            </div>
+        </div>
+        <div class="tool-item">
+            <div class="tool-summary">Exploit Database</div>
+            <div class="tool-details">
+                <p>The Exploit Database is a CVE-compliant archive of public exploits and corresponding vulnerable software, developed for use by penetration testers and vulnerability researchers.</p>
+                <a href="https://www.exploit-db.com" target="_blank" class="tool-link">Visit Exploit Database</a>
+            </div>
+        </div>
+        <div class="tool-item">
+            <div class="tool-summary">DNSDumpster</div>
+            <div class="tool-details">
+                <p>DNSDumpster is a domain research tool that can discover hosts related to a domain. It provides information about DNS records, including A, MX, NS, and TXT records.</p>
+                <a href="https://lnkd.in/gDMZx5WD" target="_blank" class="tool-link">Visit DNSDumpster</a>
+            </div>
+        </div>
+        <div class="tool-item">
+            <div class="tool-summary">OSINT Framework</div>
+            <div class="tool-details">
+                <p>The OSINT Framework is a collection of free tools and resources for Open Source Intelligence (OSINT) gathering. It helps security professionals gather information from publicly available sources.</p>
+                <a href="https://lnkd.in/giwxHNaY" target="_blank" class="tool-link">Visit OSINT Framework</a>
+            </div>
+        </div>
+        <div class="tool-item">
+            <div class="tool-summary">Metasploit Framework (Community Edition)</div>
+            <div class="tool-details">
+                <p>The Metasploit Framework is an open-source penetration testing platform that enables security professionals to find, exploit, and validate vulnerabilities. It includes a large database of exploits and payloads.</p>
+                <a href="https://www.metasploit.com" target="_blank" class="tool-link">Visit Metasploit</a>
+            </div>
+        </div>
+        <div class="tool-item">
+            <div class="tool-summary">Iplocation</div>
+            <div class="tool-details">
+                <p>Iplocation is a service that provides geolocation information for IP addresses. It helps users identify the geographical location of an IP address, including the country, region, city, and ISP.</p>
+                <a href="https://www.iplocation.net" target="_blank" class="tool-link">Visit Iplocation</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ...existing code... -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const toolItems = document.querySelectorAll('.tool-item');
+        toolItems.forEach(item => {
+            item.addEventListener('click', () => {
+                item.classList.toggle('expanded');
+            });
+        });
+    });
+</script>
     <!-- CyberSecurity News section -->
     <div class="content-wrapper" id="news" data-animation="fadeInUp">
         <div class="tryhackme-profile astonish" data-animation="fadeInRight">
@@ -2368,6 +2537,17 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(section);
     });
 });
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const toolItems = document.querySelectorAll('.tool-item');
+        toolItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const details = item.querySelector('.tool-details');
+                details.style.display = details.style.display === 'block' ? 'none' : 'block';
+            });
+        });
+    });
 </script>
 </body>
 </html>
