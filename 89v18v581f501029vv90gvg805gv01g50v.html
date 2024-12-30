@@ -1,410 +1,275 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="favicon/favicon.ico">
-    <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg">
-    <link rel="icon" type="image/png" sizes="96x96" href="favicon/favicon-96x96.png">
-    <link rel="apple-touch-icon" href="favicon/apple-touch-icon.png">
-    <link rel="manifest" href="favicon/site.webmanifest">
-    <meta name="theme-color" content="#ff0055">
-    <meta http-equiv="Cache-control" content="public">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-    <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-    <script defer src="main.js"></script>
-    <style>
-      @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@1,500&display=swap");
-      @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap');
-      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap');
-
-html,
-body {
-  height: 100%;
-}
-
-body {
-  background-color: #3d3e4a;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-.container {
-  align-items: center;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.radio-btn-group {
-  margin: 10px;
-}
-
-input[type="radio"] {
-  opacity: 0;
-  position: absolute;
-}
-
-input[type="radio"]:checked + label {
-  &::before {
-    box-shadow: 0 0 25px 2px #0763f7;
-  }
-
-  span {
-    color: #c40a35;
-  }
-}
-
-input[type="radio"]:focus + label {
-  &::before {
-    box-shadow: 0 0 25px 2px #0763f7;
-  }
-}
-
-label {
-  color: #fff;
-  cursor: pointer;
-  display: flex;
-  font-weight: 500;
-  font-style: italic;
-  align-items: center;
-  justify-content: center;
-  font-family: "IBM Plex Mono", monospace;
-  height: 50px;
-  padding: 0 30px;
-  position: relative;
-
-  &::before {
-    background-color: #24252c;
-    background-image: repeating-linear-gradient(
-      0deg,
-      #181a29,
-      #181a29 1px,
-      #202436 1px,
-      #202436 2px
-    );
-    border-radius: 10px;
-    content: "";
-    height: 100%;
-    position: absolute;
-    left: 0;
-    top: 0;
-    overflow: hidden;
-    transform: skew(-15deg);
-    transition: box-shadow 700ms;
-    width: 100%;
-    z-index: -1;
-  }
-
-  span {
-    transition: color 350ms;
-    z-index: 1;
-  }
-
-  svg {
-    border-radius: 10px;
-    overflow: hidden;
-    position: absolute;
-    transform: skew(-15deg);
-
-    .blue rect {
-      fill: #76b3fa;
-      shape-rendering: crispEdges;
-      mix-blend-mode: plus-lighter;
-    }
-
-    .pink rect {
-      fill: #ff6bd3;
-      shape-rendering: crispEdges;
-    }
-  }
-}
-        html, body {
-          font-family: "Montserrat", sans-serif;
-          font-optical-sizing: auto;
-          font-weight: 900;
-          font-style: normal;
-          overflow:hidden;
-        }
-        body, .pov {
-          width:100%;
-          height:100vh;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          background:#000;
-        }
-        .container {
-          position: relative;
-          z-index: 10;
-        }
-        .radio-btn-group label {
-          background: none;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          width: 200px;
-          height: 50px;
-          position: relative;
-        }
-        .radio-btn-group label img {
-          display: block;
-        }
-        .radio-btn-group input:checked + label img {
-          display: none;
-        }
-        .radio-btn-group input:checked + label span {
-          display: block;
-          font-family: "Inter", sans-serif;
-          font-weight: 700;
-          color: black;
-        }
-        .radio-btn-group label span {
-          display: none;
-          text-align: center;
-        }
-        .radio-btn-group .confirmation-buttons {
-          display: none;
-          margin-top: 10px;
-          justify-content: center;
-          gap: 10px;
-        }
-        .radio-btn-group input:checked + label + .confirmation-buttons {
-          display: flex;
-        }
-        .confirmation-buttons button {
-          padding: 5px 10px;
-          font-family: "Inter", sans-serif;
-          font-weight: 700;
-          cursor: pointer;
-          background: none;
-          border: none;
-          color: #fff;
-          position: relative;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          height: 30px;
-          width: 60px;
-        }
-        .confirmation-buttons button::before {
-          background-color: #24252c;
-          background-image: repeating-linear-gradient(
-            0deg,
-            #181a29,
-            #181a29 1px,
-            #202436 1px,
-            #202436 2px
-          );
-          border-radius: 10px;
-          content: "";
-          height: 100%;
-          position: absolute;
-          left: 0;
-          top: 0;
-          overflow: hidden;
-          transform: skew(-15deg);
-          transition: box-shadow 700ms;
-          width: 100%;
-          z-index: -1;
-        }
-        .confirmation-buttons button:hover::before {
-          box-shadow: 0 0 25px 2px #0763f7;
-        }
-        .die {
-          width: 400px;
-          height: 55px;
-          padding-bottom: 9px;
-          perspective: 999px;
-        }
-        .cube {
-          position: absolute;
-          width:100%;
-          height:100%;
-          transform-style: preserve-3d;
-        }
-        .face {
-          position: absolute;
-          width: 100%;
-          height: 100%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          backface-visibility: hidden;
-        }
-        .glow {
-          text-shadow: 0 0 2px #fff, 0 0 4px #fff, 0 0 6px #fff, 0 0 8px #00ffff, 0 0 10px #00ffff, 0 0 12px #00ffff, 0 0 14px #00ffff, 0 0 16px #00ffff;
-        }
-        .pov {
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          z-index: 1;
-        }
-        .confirmation {
-          display: none;
-          margin-top: 10px;
-          color: white;
-          font-size: 14px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="favicon/favicon.ico">
+  <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg">
+  <link rel="icon" type="image/png" sizes="96x96" href="favicon/favicon-96x96.png">
+  <link rel="apple-touch-icon" href="favicon/apple-touch-icon.png">
+  <link rel="manifest" href="favicon/site.webmanifest">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/89/three.min.js"></script>
+  <script src="https://github.com/mrdoob/three.js/blob/master/src/constants.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js"></script>
     <title>Welcome</title>
+<style> body { color: white; margin: 0; text-align: center; background-color: black; cursor: crosshair; } canvas { display: block; width: 100%; height: 100%; } p { color: rgba(255,255,255, 0.5) } .header { top: 42%; } .header-content { padding: 50px; background-color: rgba(0,0,0,0.3); border-radius: 10px; } .footer { bottom:3%; } .description { color: gray; padding-top: 50px; } a, a:hover, a:visited { color: white; text-decoration: none; } .disable-selection { -moz-user-select: none; /* Firefox */ -ms-user-select: none; /* Internet Explorer */ -khtml-user-select: none; /* KHTML browsers (e.g. Konqueror) */ -webkit-user-select: none; /* Chrome, Safari, and Opera */ -webkit-touch-callout: none; /* Disable Android and iOS callouts*/ } h1::after { content: ' Three JS'; font-size: 12px; position:absolute; top: 3px; padding-left: 5px; font-weight: 400; } h2::after { content: '2'; font-size: 12px; position:absolute; top: 14px; padding-left: 5px; } .btn { border-radius: 100px; padding: 10px 25px; } *, *:after, *:before { box-sizing: border-box; } :root { --x: 0; --y: 0; --xp: 0; --yp: 0; --hue: calc(0 + (var(--xp) * 500)); --bg: hsl(0 0% 0%); /* Change background color to black */ --size: 100px; --glow: radial-gradient( 50% 50% at center, hsl(var(--hue) 80% 85%), hsl(var(--hue) 80% 70%), transparent ) calc((var(--x) * 1px) - (var(--size) * 0.5)) calc((var(--y) * 1px) - (var(--size) * 0.5)) / var(--size) var(--size) no-repeat fixed; } @keyframes galaxy { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } } .controls { position: fixed; top: 2rem; right: 2rem; } body { display: flex; place-items: center; gap: 1rem; flex-wrap: wrap; justify-content: center; min-height: 100vh; font-family:  "SF Pro Text", "SF Pro Icons", "AOS Icons", "Helvetica Neue", Helvetica, Arial, sans-serif, system-ui; background: none; /* Remove background from body */ } body::before { content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background: url('https://www.publicdomainpictures.net/pictures/320000/velka/galaxy-background.jpg') no-repeat center center fixed; background-size: cover; animation: galaxy 30s linear infinite; } .button-container { background: var(--bg); /* Apply background to container */ padding: 2rem; border-radius: 1rem; } button { border-radius: 1rem; text-transform: uppercase; font-weight: bold; letter-spacing: 0.1ch; background: var(--bg); border: 4px solid transparent; box-shadow: 0 1px hsl(0 0% 100% / 0.15) inset; cursor: pointer; background: linear-gradient(var(--bg), var(--bg)) padding-box, var(--glow), linear-gradient(rgb(37, 37, 37), rgb(27, 27, 27)) border-box; transition: background-size 0.24s; touch-action: none; position: relative; padding: 1rem 2rem; font-family: "SF Pro Bold", "SF Pro Text", "SF Pro Icons", "AOS Icons", "Helvetica Neue", Helvetica, Arial, sans-serif, system-ui; } button::before { content: ""; position: absolute; inset: 0; box-shadow: 0 1px hsl(0 0% 100% / 0.15) inset; background: var(--bg); z-index: 2; /*   border: 4px solid transparent; */ border-radius: 1rem; } button span { background: var(--glow), black; background-clip: text; color: transparent; height: 100%; width: 100%; z-index: 2; position: relative; inset: 0; } :root:has(button:active) { --size: 300px; } button::after { content: ""; position: absolute; inset: -4px; filter: blur(20px); border: 4px solid transparent; background: var(--glow); border-radius: 1rem; } .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.8); display: flex; justify-content: center; align-items: center; z-index: 1000; } .overlay-content { background: rgba(255, 255, 255, 0.9); padding: 20px; border-radius: 10px; text-align: center; color: rgb(70, 67, 67); font-size: 1.5rem; } .blur { filter: blur(5px); } </style>
 </head>
 <body>
-    <div class="container">
-        <div class="radio-btn-group">
-            <input type="radio" name="stagger-radio-group" value="2" id="input-two" />
-            <label for="input-two">
-              <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English Flag" width="30" height="20">
-              <span>Would you like to check out my portfolio?</span>
-              <svg height="100%" width="100%" xmlns="http://www.w3.org/2000/svg">
-                <g class="pink">
-                  <rect x="-100%" y="0" width="100%" height="5" />
-                  <rect x="-100%" y="5" width="100%" height="5" />
-                  <rect x="-100%" y="10" width="100%" height="5" />
-                  <rect x="-100%" y="15" width="100%" height="5" />
-                  <rect x="-100%" y="20" width="100%" height="5" />
-                  <rect x="-100%" y="25" width="100%" height="5" />
-                  <rect x="-100%" y="30" width="100%" height="5" />
-                  <rect x="-100%" y="35" width="100%" height="5" />
-                  <rect x="-100%" y="40" width="100%" height="5" />
-                  <rect x="-100%" y="45" width="100%" height="5" />
-                </g>
-        
-                <g class="blue">
-                  <rect x="-100%" y="0" width="100%" height="5" />
-                  <rect x="-100%" y="5" width="100%" height="5" />
-                  <rect x="-100%" y="10" width="100%" height="5" />
-                  <rect x="-100%" y="15" width="100%" height="5" />
-                  <rect x="-100%" y="20" width="100%" height="5" />
-                  <rect x="-100%" y="25" width="100%" height="5" />
-                  <rect x="-100%" y="30" width="100%" height="5" />
-                  <rect x="-100%" y="35" width="100%" height="5" />
-                  <rect x="-100%" y="40" width="100%" height="5" />
-                  <rect x="-100%" y="45" width="100%" height="5" />
-                </g>
-              </svg>
-            </label>
-            <div class="confirmation-buttons">
-              <button onclick="window.location.href='b901g2b3091293g012b9312g32193g912g3902131238fr0/'">Yes</button>
-              <button onclick="resetButton('input-two')">No</button>
-            </div>
-          </div>
-
-        <div class="radio-btn-group">
-          <input type="radio" name="stagger-radio-group" value="1" id="input-one" />
-          <label for="input-one">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/2/21/Flag_of_Vietnam.svg" alt="Vietnam Flag" width="30" height="20">
-            <span>Vào xem portfolio của tôi chứ?</span>
-            <svg height="100%" width="100%" xmlns="http://www.w3.org/2000/svg">
-              <g class="pink">
-                <rect x="-100%" y="0" width="100%" height="5" />
-                <rect x="-100%" y="5" width="100%" height="5" />
-                <rect x="-100%" y="10" width="100%" height="5" />
-                <rect x="-100%" y="15" width="100%" height="5" />
-                <rect x="-100%" y="20" width="100%" height="5" />
-                <rect x="-100%" y="25" width="100%" height="5" />
-                <rect x="-100%" y="30" width="100%" height="5" />
-                <rect x="-100%" y="35" width="100%" height="5" />
-                <rect x="-100%" y="40" width="100%" height="5" />
-                <rect x="-100%" y="45" width="100%" height="5" />
-              </g>
-      
-              <g class="blue">
-                <rect x="-100%" y="0" width="100%" height="5" />
-                <rect x="-100%" y="5" width="100%" height="5" />
-                <rect x="-100%" y="10" width="100%" height="5" />
-                <rect x="-100%" y="15" width="100%" height="5" />
-                <rect x="-100%" y="20" width="100%" height="5" />
-                <rect x="-100%" y="25" width="100%" height="5" />
-                <rect x="-100%" y="30" width="100%" height="5" />
-                <rect x="-100%" y="35" width="100%" height="5" />
-                <rect x="-100%" y="40" width="100%" height="5" />
-                <rect x="-100%" y="45" width="100%" height="5" />
-              </g>
-            </svg>
-          </label>
-          <div class="confirmation-buttons">
-            <button onclick="window.location.href='b901g2b3091293g012b9312g32193g912g3902131238fr0/'">Đồng ý</button>
-            <button onclick="resetButton('input-one')">Không</button>
-          </div>
-        </div>
-      
-        <div class="radio-btn-group">
-          <input type="radio" name="stagger-radio-group" value="3" id="input-three" />
-          <label for="input-three">
-            <img src="https://upload.wikimedia.org/wikipedia/en/f/f3/Flag_of_Russia.svg" alt="Russian Flag" width="30" height="20">
-            <span>Хотите взглянуть на мое портфолио?</span>
-            <svg height="100%" width="100%" xmlns="http://www.w3.org/2000/svg">
-              <g class="pink">
-                <rect x="-100%" y="0" width="100%" height="5" />
-                <rect x="-100%" y="5" width="100%" height="5" />
-                <rect x="-100%" y="10" width="100%" height="5" />
-                <rect x="-100%" y="15" width="100%" height="5" />
-                <rect x="-100%" y="20" width="100%" height="5" />
-                <rect x="-100%" y="25" width="100%" height="5" />
-                <rect x="-100%" y="30" width="100%" height="5" />
-                <rect x="-100%" y="35" width="100%" height="5" />
-                <rect x="-100%" y="40" width="100%" height="5" />
-                <rect x="-100%" y="45" width="100%" height="5" />
-              </g>
-      
-              <g class="blue">
-                <rect x="-100%" y="0" width="100%" height="5" />
-                <rect x="-100%" y="5" width="100%" height="5" />
-                <rect x="-100%" y="10" width="100%" height="5" />
-                <rect x="-100%" y="15" width="100%" height="5" />
-                <rect x="-100%" y="20" width="100%" height="5" />
-                <rect x="-100%" y="25" width="100%" height="5" />
-                <rect x="-100%" y="30" width="100%" height="5" />
-                <rect x="-100%" y="35" width="100%" height="5" />
-                <rect x="-100%" y="40" width="100%" height="5" />
-                <rect x="-100%" y="45" width="100%" height="5" />
-              </g>
-            </svg>
-          </label>
-          <div class="confirmation-buttons">
-            <button onclick="window.location.href='b901g2b3091293g012b9312g32193g912g3902131238fr0/'">
-                Да</button>
-            <button onclick="resetButton('input-three')">Нет</button>
-          </div>
-        </div>
-      </div>
-      <div class="pov">
-        <div class="tray">
-          <div class="die">
-            <div class="cube">
-              <div class="face glow" style="font-size:60px">_B_!#G(#B_!B#B!#(B_!(#G_!B#(!G#</div>
-              <div class="face glow" style="font-size:58px">CORBIEREVN</div>
-              <div class="face glow" style="font-size:55px">+B!)B!)(B+GB$)!B)B0=b0=</div>      
-            </div>
-          </div>  
-          <!-- clones will go here -->
-        </div>
+  <div class="overlay" id="overlay">
+    <div class="overlay-content">
+      This website requires a high-performance setup. Please consider your system's capabilities before accessing !!!<br>
+      <strong>Click anywhere to continue</div>
     </div>
-    <script>
-        function resetButton(inputId) {
-            document.getElementById(inputId).checked = false;
-            document.querySelectorAll('.radio-btn-group label span').forEach(span => span.style.display = 'none');
-            document.querySelectorAll('.confirmation-buttons').forEach(buttons => buttons.style.display = 'none');
-        }
-
-        document.querySelectorAll('.radio-btn-group label').forEach(label => {
-            label.addEventListener('mouseenter', () => {
-                label.querySelector('input').checked = true;
-                // Trigger the effect here
-            });
-            label.addEventListener('click', () => {
-                document.querySelectorAll('.radio-btn-group label span').forEach(span => span.style.display = 'none');
-                document.querySelectorAll('.confirmation-buttons').forEach(buttons => buttons.style.display = 'none');
-                label.querySelector('span').style.display = 'block';
-                label.nextElementSibling.style.display = 'flex';
-            });
-        });
-    </script>
+  </div>
+  <div id="content">
+    <div class="container-fluid fixed-top header disable-selection">
+      <div class="row">
+        <div class="col"></div>
+        <div class="col-md-6">
+          <div class="row">
+            <div class="col">
+              <a href="https://static.vecteezy.com/system/resources/thumbnails/003/284/550/original/coming-soon-gold-text-flashing-motion-graphic-free-video.jpg" target="_blank">
+                <button>
+                  <span>Services</span>
+                </button>
+              </a>
+              <a href="https://uziw3b.site/b901g2b3091293g012b9312g32193g912g3902131238fr0/" target="_blank">
+                <button>
+                  <span>Portfolio</span>
+                </button>
+              </a>
+              <a href="https://static.vecteezy.com/system/resources/thumbnails/003/284/550/original/coming-soon-gold-text-flashing-motion-graphic-free-video.jpg" target="_blank">
+                <button>
+                  <span>Learnings</span>
+                </button>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col"></div>
+      </div>
+    </div>
+  </div>
 </body>
+<script>
+  const syncPointer = ({ x: pointerX, y: pointerY }) => {
+    const x = pointerX.toFixed(2)
+    const y = pointerY.toFixed(2)
+    const xp = (pointerX / window.innerWidth).toFixed(2)
+    const yp = (pointerY / window.innerHeight).toFixed(2)
+    document.documentElement.style.setProperty('--x', x)
+    document.documentElement.style.setProperty('--xp', xp)
+    document.documentElement.style.setProperty('--y', y)
+    document.documentElement.style.setProperty('--yp', yp)
+  }
+  document.body.addEventListener('pointermove', syncPointer)     
+</script>
+<script>
+  var renderer = new THREE.WebGLRenderer({antialias:true});
+renderer.setSize( window.innerWidth, window.innerHeight );
+
+if (window.innerWidth > 800) {
+  renderer.shadowMap.enabled = true;
+  renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+  renderer.shadowMap.needsUpdate = true;
+};
+document.body.appendChild( renderer.domElement );
+
+window.addEventListener('resize', onWindowResize, false);
+function onWindowResize() {
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize( window.innerWidth, window.innerHeight );
+};
+var camera = new THREE.PerspectiveCamera( 20, window.innerWidth / window.innerHeight, 1, 500 );
+camera.position.set(0, 2, 14);
+var scene = new THREE.Scene();
+var city = new THREE.Object3D();
+var smoke = new THREE.Object3D();
+var town = new THREE.Object3D();
+var createCarPos = true;
+var uSpeed = 0.001;
+var setcolor = 0xF02050;
+scene.background = new THREE.Color(setcolor);
+scene.fog = new THREE.Fog(setcolor, 10, 16);
+function mathRandom(num = 8) {
+  var numValue = - Math.random() * num + Math.random() * num;
+  return numValue;
+};
+var setTintNum = true;
+function setTintColor() {
+  if (setTintNum) {
+    setTintNum = false;
+    var setColor = 0x000000;
+  } else {
+    setTintNum = true;
+    var setColor = 0x000000;
+  };
+  //setColor = 0x222222;
+  return setColor;
+};
+function init() {
+  var segments = 2;
+  for (var i = 1; i<100; i++) {
+    var geometry = new THREE.CubeGeometry(1,0,0,segments,segments,segments);
+    var material = new THREE.MeshStandardMaterial({
+      color:setTintColor(),
+      wireframe:false,
+      shading: THREE.SmoothShading,
+      side:THREE.DoubleSide});
+    var wmaterial = new THREE.MeshLambertMaterial({
+      color:0xFFFFFF,
+      wireframe:true,
+      transparent:true,
+      opacity: 0.03,
+      side:THREE.DoubleSide});
+    var cube = new THREE.Mesh(geometry, material);
+    var wire = new THREE.Mesh(geometry, wmaterial);
+    var floor = new THREE.Mesh(geometry, material);
+    var wfloor = new THREE.Mesh(geometry, wmaterial);
+    
+    cube.add(wfloor);
+    cube.castShadow = true;
+    cube.receiveShadow = true;
+    cube.rotationValue = 0.1+Math.abs(mathRandom(8));
+    floor.scale.y = 0.05;//+mathRandom(0.5);
+    cube.scale.y = 0.1+Math.abs(mathRandom(8));
+    var cubeWidth = 0.9;
+    cube.scale.x = cube.scale.z = cubeWidth+mathRandom(1-cubeWidth);
+    cube.position.x = Math.round(mathRandom());
+    cube.position.z = Math.round(mathRandom());   
+    floor.position.set(cube.position.x, 0, cube.position.z)  
+    town.add(floor);
+    town.add(cube);
+  };  
+  var gmaterial = new THREE.MeshToonMaterial({color:0xFFFF00, side:THREE.DoubleSide});
+  var gparticular = new THREE.CircleGeometry(0.01, 3);
+  var aparticular = 5;
+  for (var h = 1; h<300; h++) {
+    var particular = new THREE.Mesh(gparticular, gmaterial);
+    particular.position.set(mathRandom(aparticular), mathRandom(aparticular),mathRandom(aparticular));
+    particular.rotation.set(mathRandom(),mathRandom(),mathRandom());
+    smoke.add(particular);
+  };
+  var pmaterial = new THREE.MeshPhongMaterial({
+    color:0x000000,
+    side:THREE.DoubleSide,
+    roughness: 10,
+    metalness: 0.6,
+    opacity:0.9,
+    transparent:true});
+  var pgeometry = new THREE.PlaneGeometry(60,60);
+  var pelement = new THREE.Mesh(pgeometry, pmaterial);
+  pelement.rotation.x = -90 * Math.PI / 180;
+  pelement.position.y = -0.001;
+  pelement.receiveShadow = true;
+  city.add(pelement);
+};
+var raycaster = new THREE.Raycaster();
+var mouse = new THREE.Vector2(), INTERSECTED;
+var intersected;
+function onMouseMove(event) {
+  event.preventDefault();
+  mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+  mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+};
+function onDocumentTouchStart( event ) {
+  if ( event.touches.length == 1 ) {
+    event.preventDefault();
+    mouse.x = event.touches[ 0 ].pageX -  window.innerWidth / 2;
+    mouse.y = event.touches[ 0 ].pageY - window.innerHeight / 2;
+  };
+};
+function onDocumentTouchMove( event ) {
+  if ( event.touches.length == 1 ) {
+    event.preventDefault();
+    mouse.x = event.touches[ 0 ].pageX -  window.innerWidth / 2;
+    mouse.y = event.touches[ 0 ].pageY - window.innerHeight / 2;
+  }
+}
+window.addEventListener('mousemove', onMouseMove, false);
+window.addEventListener('touchstart', onDocumentTouchStart, false );
+window.addEventListener('touchmove', onDocumentTouchMove, false );
+var ambientLight = new THREE.AmbientLight(0xFFFFFF, 4);
+var lightFront = new THREE.SpotLight(0xFFFFFF, 20, 10);
+var lightBack = new THREE.PointLight(0xFFFFFF, 0.5);
+var spotLightHelper = new THREE.SpotLightHelper( lightFront );
+lightFront.rotation.x = 45 * Math.PI / 180;
+lightFront.rotation.z = -45 * Math.PI / 180;
+lightFront.position.set(5, 5, 5);
+lightFront.castShadow = true;
+lightFront.shadow.mapSize.width = 6000;
+lightFront.shadow.mapSize.height = lightFront.shadow.mapSize.width;
+lightFront.penumbra = 0.1;
+lightBack.position.set(0,6,0);
+smoke.position.y = 2;
+scene.add(ambientLight);
+city.add(lightFront);
+scene.add(lightBack);
+scene.add(city);
+city.add(smoke);
+city.add(town);
+var gridHelper = new THREE.GridHelper( 60, 120, 0xFF0000, 0x000000);
+city.add( gridHelper );
+var generateCar = function() {
+  
+}
+var createCars = function(cScale = 2, cPos = 20, cColor = 0xFFFF00) {
+  var cMat = new THREE.MeshToonMaterial({color:cColor, side:THREE.DoubleSide});
+  var cGeo = new THREE.CubeGeometry(1, cScale/40, cScale/40);
+  var cElem = new THREE.Mesh(cGeo, cMat);
+  var cAmp = 3;
+  if (createCarPos) {
+    createCarPos = false;
+    cElem.position.x = -cPos;
+    cElem.position.z = (mathRandom(cAmp));
+    TweenMax.to(cElem.position, 3, {x:cPos, repeat:-1, yoyo:true, delay:mathRandom(3)});
+  } else {
+    createCarPos = true;
+    cElem.position.x = (mathRandom(cAmp));
+    cElem.position.z = -cPos;
+    cElem.rotation.y = 90 * Math.PI / 180;
+  
+    TweenMax.to(cElem.position, 5, {z:cPos, repeat:-1, yoyo:true, delay:mathRandom(3), ease:Power1.easeInOut});
+  };
+  cElem.receiveShadow = true;
+  cElem.castShadow = true;
+  cElem.position.y = Math.abs(mathRandom(5));
+  city.add(cElem);
+};
+var generateLines = function() {
+  for (var i = 0; i<60; i++) {
+    createCars(0.1, 20);
+  };
+};
+var cameraSet = function() {
+  createCars(0.1, 20, 0xFFFFFF);
+};
+var animate = function() {
+  var time = Date.now() * 0.00005;
+  requestAnimationFrame(animate);
+  city.rotation.y -= ((mouse.x * 8) - camera.rotation.y) * uSpeed;
+  city.rotation.x -= (-(mouse.y * 2) - camera.rotation.x) * uSpeed;
+  if (city.rotation.x < -0.05) city.rotation.x = -0.05;
+  else if (city.rotation.x>1) city.rotation.x = 1;
+  var cityRotation = Math.sin(Date.now() / 5000) * 13;
+  for ( let i = 0, l = town.children.length; i < l; i ++ ) {
+    var object = town.children[ i ];
+  }
+  smoke.rotation.y += 0.01;
+  smoke.rotation.x += 0.01;
+  camera.lookAt(city.position);
+  renderer.render( scene, camera );  
+}
+generateLines();
+init();
+animate();
+document.getElementById('overlay').addEventListener('click', function() {
+  this.style.display = 'none';
+  document.getElementById('content').classList.remove('blur');
+});
+document.getElementById('content').classList.add('blur');
+</script>
 </html>
